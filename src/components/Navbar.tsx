@@ -1,13 +1,23 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Scale } from "lucide-react";
+import { Menu, X, Scale, User, LogOut } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user, isAuthenticated, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,14 +71,48 @@ const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" className="text-muted-foreground hover:text-primary">
-              Sign In
-            </Button>
-            <Link to="/onboarding">
-              <Button className="btn-teal rounded-full px-6">
-                Get Started
-              </Button>
-            </Link>
+            {isAuthenticated ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="flex items-center gap-2 text-foreground hover:text-primary">
+                    <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center">
+                      <User className="w-4 h-4 text-accent-foreground" />
+                    </div>
+                    <span className="font-medium">{user?.name?.split(' ')[0]}</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuItem className="flex items-center gap-2" onClick={() => navigate("/dashboard")}>
+                    <User className="w-4 h-4" />
+                    Dashboard
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem 
+                    className="flex items-center gap-2 text-destructive focus:text-destructive"
+                    onClick={() => {
+                      logout();
+                      navigate("/");
+                    }}
+                  >
+                    <LogOut className="w-4 h-4" />
+                    Sign Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <>
+                <Link to="/auth">
+                  <Button variant="ghost" className="text-muted-foreground hover:text-primary">
+                    Sign In
+                  </Button>
+                </Link>
+                <Link to="/auth" state={{ from: "/onboarding" }}>
+                  <Button className="btn-teal rounded-full px-6">
+                    Get Started
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -100,14 +144,41 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
-                <Button variant="ghost" className="justify-start">
-                  Sign In
-                </Button>
-                <Link to="/onboarding">
-                  <Button className="btn-teal w-full">
-                    Get Started
-                  </Button>
-                </Link>
+                {isAuthenticated ? (
+                  <>
+                    <Link to="/dashboard" onClick={() => setIsMobileMenuOpen(false)}>
+                      <Button variant="ghost" className="justify-start w-full gap-2">
+                        <User className="w-4 h-4" />
+                        Dashboard
+                      </Button>
+                    </Link>
+                    <Button 
+                      variant="ghost" 
+                      className="justify-start text-destructive hover:text-destructive gap-2"
+                      onClick={() => {
+                        logout();
+                        setIsMobileMenuOpen(false);
+                        navigate("/");
+                      }}
+                    >
+                      <LogOut className="w-4 h-4" />
+                      Sign Out
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/auth" onClick={() => setIsMobileMenuOpen(false)}>
+                      <Button variant="ghost" className="justify-start w-full">
+                        Sign In
+                      </Button>
+                    </Link>
+                    <Link to="/auth" state={{ from: "/onboarding" }} onClick={() => setIsMobileMenuOpen(false)}>
+                      <Button className="btn-teal w-full">
+                        Get Started
+                      </Button>
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </motion.div>
