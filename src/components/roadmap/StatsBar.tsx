@@ -23,8 +23,8 @@ const StatsBar = ({ readinessScore, estimatedFees, launchEta }: StatsBarProps) =
               <p className="text-sm font-medium text-muted-foreground">Readiness Score</p>
               <p className="text-2xl font-bold text-foreground mt-1">{readinessScore}%</p>
               <div className="flex items-center gap-1 mt-2">
-                <TrendingUp className="h-3 w-3 text-emerald" />
-                <span className="text-xs text-emerald">+5% this week</span>
+                <TrendingUp className="h-3 w-3 text-emerald-500" />
+                <span className="text-xs text-emerald-500">+5% this week</span>
               </div>
             </div>
             <CircularProgress
@@ -54,8 +54,8 @@ const StatsBar = ({ readinessScore, estimatedFees, launchEta }: StatsBarProps) =
               </div>
               <p className="text-xs text-muted-foreground mt-2">Excluding professional fees</p>
             </div>
-            <div className="h-14 w-14 rounded-full bg-amber/10 flex items-center justify-center">
-              <IndianRupee className="h-7 w-7 text-amber" />
+            <div className="h-14 w-14 rounded-full bg-gold/10 flex items-center justify-center">
+              <IndianRupee className="h-7 w-7 text-gold" />
             </div>
           </div>
         </Card>
@@ -73,8 +73,8 @@ const StatsBar = ({ readinessScore, estimatedFees, launchEta }: StatsBarProps) =
               <p className="text-2xl font-bold text-foreground mt-1">{launchEta} days</p>
               <p className="text-xs text-muted-foreground mt-2">Based on current pace</p>
             </div>
-            <div className="h-14 w-14 rounded-full bg-navy/10 flex items-center justify-center">
-              <Calendar className="h-7 w-7 text-navy" />
+            <div className="h-14 w-14 rounded-full bg-primary/10 flex items-center justify-center">
+              <Calendar className="h-7 w-7 text-primary" />
             </div>
           </div>
         </Card>

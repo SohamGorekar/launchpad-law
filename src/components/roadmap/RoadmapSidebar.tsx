@@ -92,7 +92,7 @@ const RoadmapSidebar = ({
       </ScrollArea>
       
       <div className="p-4 border-t border-border">
-        <div className="bg-navy rounded-lg p-4 text-center">
+        <div className="bg-primary rounded-lg p-4 text-center">
           <p className="text-primary-foreground text-sm font-medium">Need Expert Help?</p>
           <p className="text-primary-foreground/70 text-xs mt-1">Connect with verified CAs</p>
         </div>

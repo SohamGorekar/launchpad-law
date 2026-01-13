@@ -55,18 +55,18 @@ const StepNiche = ({ value, onChange }: StepNicheProps) => {
                 onSelect={() => onChange(sector.value)}
                 className={`cursor-pointer p-4 transition-colors ${
                   value === sector.value 
-                    ? "bg-accent/10 border-l-4 border-accent" 
-                    : "hover:bg-muted"
+                    ? "!bg-accent/15 border-l-4 border-accent" 
+                    : "hover:!bg-muted/50"
                 }`}
               >
                 <div className="flex items-center gap-4 w-full">
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                    value === sector.value ? "bg-accent text-accent-foreground" : "bg-muted"
+                    value === sector.value ? "bg-accent text-white" : "bg-muted text-muted-foreground"
                   }`}>
                     <sector.icon className="w-6 h-6" />
                   </div>
                   <div className="flex-1">
-                    <p className="font-medium text-card-foreground">{sector.label}</p>
+                    <p className="font-medium text-foreground">{sector.label}</p>
                     <p className="text-sm text-muted-foreground">{sector.description}</p>
                   </div>
                   {value === sector.value && (
@@ -75,7 +75,7 @@ const StepNiche = ({ value, onChange }: StepNicheProps) => {
                       animate={{ scale: 1 }}
                       className="w-6 h-6 rounded-full bg-accent flex items-center justify-center"
                     >
-                      <span className="text-accent-foreground text-sm">✓</span>
+                      <span className="text-white text-sm">✓</span>
                     </motion.div>
                   )}
                 </div>

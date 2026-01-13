@@ -24,8 +24,8 @@ const CircularProgress = ({
   const colorClasses = {
     teal: "stroke-accent",
     navy: "stroke-primary",
-    amber: "stroke-[hsl(var(--amber))]",
-    emerald: "stroke-[hsl(var(--emerald))]",
+    amber: "stroke-amber-500",
+    emerald: "stroke-emerald-500",
   };
 
   return (

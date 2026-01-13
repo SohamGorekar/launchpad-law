@@ -44,6 +44,14 @@
     --gold: 32 91% 37%;
     --gold-foreground: 0 0% 100%;
 
+    /* Amber accent */
+    --amber: 38 92% 50%;
+    --amber-foreground: 0 0% 100%;
+
+    /* Emerald success */
+    --emerald: 160 84% 39%;
+    --emerald-foreground: 0 0% 100%;
+
     /* Borders and inputs */
     --border: 224 20% 88%;
     --input: 224 20% 88%;
@@ -184,5 +192,17 @@
   .btn-gold {
     @apply text-gold-foreground shadow-md hover:shadow-lg transition-all duration-200;
     background: var(--gradient-gold);
+  }
+
+  .btn-teal:hover {
+    @apply opacity-90 scale-[1.02];
+  }
+
+  .btn-navy:hover {
+    @apply opacity-90 scale-[1.02];
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 }
