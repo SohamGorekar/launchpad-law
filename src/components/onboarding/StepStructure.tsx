@@ -74,7 +74,7 @@ const StepStructure = ({ value, onChange }: StepStructureProps) => {
                   </div>
                 )}
                 <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-2 ${
-                  value === structure.value ? "bg-accent text-accent-foreground" : "bg-muted"
+                  value === structure.value ? "bg-accent text-white" : "bg-muted text-muted-foreground"
                 }`}>
                   <structure.icon className="w-7 h-7" />
                 </div>

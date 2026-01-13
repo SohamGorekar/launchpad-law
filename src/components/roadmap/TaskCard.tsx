@@ -84,17 +84,17 @@ const TaskCard = ({
   const statusConfig = {
     completed: {
       icon: <Check className="h-4 w-4" />,
-      bgClass: "bg-emerald",
-      borderClass: "border-emerald/30",
-      textClass: "text-emerald",
-      cardClass: "bg-emerald/5 border-emerald/20",
+      bgClass: "bg-emerald-500",
+      borderClass: "border-emerald-500/30",
+      textClass: "text-emerald-600",
+      cardClass: "bg-emerald-50 border-emerald-200",
     },
     "in-progress": {
       icon: <Clock className="h-4 w-4" />,
-      bgClass: "bg-amber",
-      borderClass: "border-amber/30",
-      textClass: "text-amber",
-      cardClass: "bg-amber/5 border-amber/20 animate-pulse-slow",
+      bgClass: "bg-amber-500",
+      borderClass: "border-amber-500/30",
+      textClass: "text-amber-600",
+      cardClass: "bg-amber-50 border-amber-200 animate-pulse-slow",
     },
     pending: {
       icon: <div className="h-2 w-2 rounded-full bg-muted-foreground" />,
@@ -167,10 +167,10 @@ const TaskCard = ({
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Badge
-                variant="secondary"
-                className="shrink-0 bg-navy/10 text-navy border-navy/20 gap-1 hidden sm:flex"
-              >
+                <Badge
+                  variant="secondary"
+                  className="shrink-0 bg-primary/10 text-primary border-primary/20 gap-1 hidden sm:flex"
+                >
                 <Shield className="h-3 w-3" />
                 Verified
               </Badge>
@@ -246,7 +246,7 @@ const TaskCard = ({
                   <SheetTrigger asChild>
                     <Button
                       size="sm"
-                      className="gap-2 bg-accent hover:bg-teal-light text-accent-foreground"
+                      className="gap-2 bg-accent hover:bg-accent/80 text-accent-foreground"
                     >
                       <Sparkles className="h-4 w-4" />
                       Draft with Gemini
@@ -270,7 +270,7 @@ const TaskCard = ({
                           through the process step by step.
                         </p>
                       </div>
-                      <Button className="w-full gap-2 bg-accent hover:bg-teal-light">
+                      <Button className="w-full gap-2 bg-accent hover:bg-accent/80">
                         <Sparkles className="h-4 w-4" />
                         Start Drafting
                       </Button>
@@ -282,7 +282,7 @@ const TaskCard = ({
                   <Button
                     size="sm"
                     variant="ghost"
-                    className="gap-2 ml-auto text-emerald hover:text-emerald hover:bg-emerald/10"
+                    className="gap-2 ml-auto text-emerald-600 hover:text-emerald-700 hover:bg-emerald-50"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleComplete();
