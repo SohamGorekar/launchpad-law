@@ -24,7 +24,7 @@ const Auth = () => {
   const location = useLocation();
   const { toast } = useToast();
 
-  const from = location.state?.from || "/onboarding";
+  const from = location.state?.from || "/dashboard";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

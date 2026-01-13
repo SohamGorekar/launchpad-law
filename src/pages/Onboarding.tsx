@@ -65,7 +65,7 @@ const Onboarding = () => {
       structure,
       teamSize,
     }));
-    navigate("/dashboard");
+    navigate("/roadmap");
   };
 
   const renderStep = () => {
