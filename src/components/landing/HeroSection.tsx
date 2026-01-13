@@ -51,11 +51,13 @@ const HeroSection = () => {
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <button 
-                className="rounded-full px-8 py-4 text-lg font-medium border-2 border-white/40 text-white bg-white/5 hover:bg-white/15 hover:border-white/60 transition-all duration-200"
-              >
-                Watch Demo
-              </button>
+              <Link to="/#how-it-works">
+                <button 
+                  className="rounded-full px-8 py-4 text-lg font-medium border-2 border-white/40 text-white bg-white/5 hover:bg-white/15 hover:border-white/60 transition-all duration-200"
+                >
+                  Watch Demo
+                </button>
+              </Link>
             </div>
 
             {/* Trust indicators */}
